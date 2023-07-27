@@ -1,6 +1,6 @@
-package com.examGenerator.professorManagement.repository;
+package com.examGenerator.professormanagement.repository;
 
-import com.examGenerator.professorManagement.core.model.ApplicationUser;
+import com.examGenerator.professormanagement.core.model.ApplicationUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;

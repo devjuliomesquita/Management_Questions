@@ -1,11 +1,11 @@
-package com.examGenerator.professorManagement.config.security.controller;
+package com.examGenerator.professormanagement.config.security.controller;
 
-import com.examGenerator.professorManagement.config.security.dto.request.AuthenticationDTO;
-import com.examGenerator.professorManagement.config.security.dto.request.RegisterDTO;
-import com.examGenerator.professorManagement.config.security.dto.response.LoginResponseDTO;
-import com.examGenerator.professorManagement.config.security.service.AuthenticationService;
-import com.examGenerator.professorManagement.config.security.service.TokenService;
-import com.examGenerator.professorManagement.core.model.ApplicationUser;
+import com.examGenerator.professormanagement.config.security.dto.request.AuthenticationDTO;
+import com.examGenerator.professormanagement.config.security.dto.request.RegisterDTO;
+import com.examGenerator.professormanagement.config.security.dto.response.LoginResponseDTO;
+import com.examGenerator.professormanagement.config.security.service.AuthenticationService;
+import com.examGenerator.professormanagement.config.security.service.TokenService;
+import com.examGenerator.professormanagement.core.model.ApplicationUser;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

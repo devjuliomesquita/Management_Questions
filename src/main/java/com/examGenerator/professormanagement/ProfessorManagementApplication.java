@@ -1,4 +1,4 @@
-package com.examGenerator.professorManagement;
+package com.examGenerator.professormanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

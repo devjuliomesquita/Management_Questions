@@ -1,4 +1,4 @@
-package com.examGenerator.professorManagement.core.model;
+package com.examGenerator.professormanagement.core.model;
 
 public enum UserRole {
     ADMIN("admin"), USER("user");

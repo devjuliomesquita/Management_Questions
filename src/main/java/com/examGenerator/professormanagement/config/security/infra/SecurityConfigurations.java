@@ -1,4 +1,4 @@
-package com.examGenerator.professorManagement.config.security.infra;
+package com.examGenerator.professormanagement.config.security.infra;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

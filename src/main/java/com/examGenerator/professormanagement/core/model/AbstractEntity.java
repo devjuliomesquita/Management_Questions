@@ -1,4 +1,4 @@
-package com.examGenerator.professorManagement.core.model;
+package com.examGenerator.professormanagement.core.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -1,4 +1,4 @@
-package com.examGenerator.professorManagement.config.security.dto.request;
+package com.examGenerator.professormanagement.config.security.dto.request;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;

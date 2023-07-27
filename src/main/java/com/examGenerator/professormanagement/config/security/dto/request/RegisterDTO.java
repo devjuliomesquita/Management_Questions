@@ -1,6 +1,6 @@
-package com.examGenerator.professorManagement.config.security.dto.request;
+package com.examGenerator.professormanagement.config.security.dto.request;
 
-import com.examGenerator.professorManagement.core.model.UserRole;
+import com.examGenerator.professormanagement.core.model.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 

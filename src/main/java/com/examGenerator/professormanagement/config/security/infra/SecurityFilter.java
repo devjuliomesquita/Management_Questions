@@ -1,7 +1,7 @@
-package com.examGenerator.professorManagement.config.security.infra;
+package com.examGenerator.professormanagement.config.security.infra;
 
-import com.examGenerator.professorManagement.config.security.service.AuthorizationService;
-import com.examGenerator.professorManagement.config.security.service.TokenService;
+import com.examGenerator.professormanagement.config.security.service.AuthorizationService;
+import com.examGenerator.professormanagement.config.security.service.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

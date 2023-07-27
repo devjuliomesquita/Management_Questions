@@ -1,6 +1,6 @@
-package com.examGenerator.professorManagement.config.security.service;
+package com.examGenerator.professormanagement.config.security.service;
 
-import com.examGenerator.professorManagement.repository.ApplicationUserRepository;
+import com.examGenerator.professormanagement.repository.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,4 +1,4 @@
-package com.examGenerator.professorManagement.config.security.dto.response;
+package com.examGenerator.professormanagement.config.security.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
