@@ -6,8 +6,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +18,9 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "tb_user")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ApplicationUser extends AbstractEntity implements UserDetails {
     @NotEmpty
     @Column(unique = true)
@@ -30,6 +32,11 @@ public class ApplicationUser extends AbstractEntity implements UserDetails {
     @NotNull
     private UserRole role;
 
+    public ApplicationUser(String login, String password, UserRole role){
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UserRole.ADMIN){
