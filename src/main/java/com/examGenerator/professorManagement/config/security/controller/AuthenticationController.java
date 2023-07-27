@@ -24,7 +24,7 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
 
-    @PostMapping
+    @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO authenticationDTO) {
         UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(
                 authenticationDTO.getLogin(), authenticationDTO.getPassword());
@@ -32,7 +32,7 @@ public class AuthenticationController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping
+    @PostMapping("register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO registerDTO) {
         if (authenticationService.findByLogin(registerDTO) != null) return ResponseEntity.badRequest().build();
         String encyptedPassword = new BCryptPasswordEncoder().encode(registerDTO.getPassword());

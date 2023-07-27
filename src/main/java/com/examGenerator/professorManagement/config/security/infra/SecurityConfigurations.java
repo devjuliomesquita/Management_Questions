@@ -20,7 +20,10 @@ public class SecurityConfigurations {
         httpSecurity
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(author -> author.requestMatchers(HttpMethod.GET, "api/teste").hasRole("ADMIN")
+                .authorizeHttpRequests(author -> author
+                        .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.GET, "api/teste").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
         return httpSecurity.build();
