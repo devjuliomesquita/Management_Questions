@@ -2,7 +2,9 @@ package com.examGenerator.professorManagement.config.security.controller;
 
 import com.examGenerator.professorManagement.config.security.dto.request.AuthenticationDTO;
 import com.examGenerator.professorManagement.config.security.dto.request.RegisterDTO;
+import com.examGenerator.professorManagement.config.security.dto.response.LoginResponseDTO;
 import com.examGenerator.professorManagement.config.security.service.AuthenticationService;
+import com.examGenerator.professorManagement.config.security.service.TokenService;
 import com.examGenerator.professorManagement.core.model.ApplicationUser;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +25,20 @@ public class AuthenticationController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private AuthenticationService authenticationService;
+    @Autowired
+    private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO authenticationDTO) {
+    public ResponseEntity<?> login(@RequestBody @Valid AuthenticationDTO authenticationDTO) {
         UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(
                 authenticationDTO.getLogin(), authenticationDTO.getPassword());
         Authentication auth = this.authenticationManager.authenticate(usernamePassword);
-        return ResponseEntity.ok().build();
+        var token = tokenService.genToken((ApplicationUser) auth.getPrincipal());
+        return ResponseEntity.ok(LoginResponseDTO.builder().token(token).build());
     }
 
-    @PostMapping("register")
-    public ResponseEntity register(@RequestBody @Valid RegisterDTO registerDTO) {
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody @Valid RegisterDTO registerDTO) {
         if (authenticationService.findByLogin(registerDTO) != null) return ResponseEntity.badRequest().build();
         String encyptedPassword = new BCryptPasswordEncoder().encode(registerDTO.getPassword());
         ApplicationUser newUser = ApplicationUser.builder()
