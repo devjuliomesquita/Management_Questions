@@ -5,12 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,10 +27,16 @@ public class ApplicationUser extends AbstractEntity implements UserDetails {
     private String password;
     @OneToOne
     private Professor professor;
+    @NotNull
+    private UserRole role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        if(this.role == UserRole.ADMIN){
+            return List.of(new SimpleGrantedAuthority("ROlE_ADMIN"), new SimpleGrantedAuthority("ROlE_USER"));
+        }else {
+            return List.of(new SimpleGrantedAuthority("ROlE_USER"));
+        }
     }
 
     @Override
